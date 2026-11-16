@@ -436,7 +436,7 @@
       const pageItems = items.slice(start, start + state.perPage);
 
       gridEl.innerHTML = pageItems.map(p => `
-    <a class="card" href="product-detail.html?id=${p.id}">
+    <a class="card" href="/product?id=${p.id}">
       <div class="card-media">
         ${icon(p.icon)}
         <div class="card-overlay"><span>Item Details</span></div>

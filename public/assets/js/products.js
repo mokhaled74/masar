@@ -4950,7 +4950,7 @@ async function loadProduct(id) {
     relatedGrid.innerHTML = related
       .map(
         (r) => `
-      <a class="rcard" href="product-detail.html?id=${r.id}">
+      <a class="rcard" href="/product?id=${r.id}">
         <div class="rcard-media">${icon(r.icon)}</div>
         <div class="rcard-body">
           <div class="rcard-tag">${r.tag}</div>

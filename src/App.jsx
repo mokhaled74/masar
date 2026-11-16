@@ -10,15 +10,15 @@ import ProductCatalog from './pages/ProductCatalog.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 import Search from './pages/Search.jsx';
 
+const scriptPromises = {};
 function loadScriptOnce(src) {
-  if (document.querySelector(`script[src="${src}"]`)) return Promise.resolve();
-  return new Promise((resolve, reject) => {
-    const s = document.createElement('script');
-    s.src = src;
-    s.onload = resolve;
-    s.onerror = reject;
-    document.body.appendChild(s);
-  });
+  if (scriptPromises[src]) return scriptPromises[src];
+  scriptPromises[src] = (async () => {
+    const res = await fetch(src);
+    const code = await res.text();
+    new Function(code)();
+  })();
+  return scriptPromises[src];
 }
 
 async function runFile(src) {
@@ -39,7 +39,9 @@ function ScriptLoader() {
           await loadScriptOnce('/assets/js/plugins.js');
           window.__jqLoaded = true;
         }
+        await new Promise(r => setTimeout(r, 100));
         await runFile('/assets/js/main.js');
+        await new Promise(r => setTimeout(r, 200));
 
         const path = location.pathname;
         if (path.startsWith('/product') && !path.startsWith('/products')) {
@@ -49,6 +51,7 @@ function ScriptLoader() {
           await runFile('/assets/js/catalog.js');
         }
         if (path === '/search') {
+          await runFile('/assets/js/products.js');
           await runFile('/assets/js/search.js');
         }
       } catch (e) {

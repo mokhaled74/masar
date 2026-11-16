@@ -70,7 +70,7 @@ function buildProductsIndex() {
 
             title: product.title,
 
-            url: `product-detail.html?id=${product.id}`,
+            url: `/product?id=${product.id}`,
 
             text: `
                 ${product.title}
