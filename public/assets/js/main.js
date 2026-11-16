@@ -255,10 +255,10 @@ $(function () {
   });
 
   /*==========   counterUp  ==========*/
-  $(".counter").counterUp({
+  try { $(".counter").counterUp({
     delay: 10,
     time: 500,
-  });
+  }); } catch (e) { /* ignore */ }
 
   /*==========   Projects Filtering and Sorting  ==========*/
   $("#filtered-items-wrap").mixItUp();
