@@ -7410,6 +7410,12 @@ textarea.form-control {
   margin-bottom: 10px;
 }
 
+.suffix {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+}
+
 #banner3 .suffix {
   font-size: 4rem;
 }
