@@ -4990,3 +4990,6 @@ if (__backLink) __backLink.addEventListener("click", (e) => {
 });
 
 if (document.getElementById("prodTitle")) loadProduct(requestedId);
+
+// search.js runs in its own scope; expose the list so the search page can index products.
+window.PRODUCTS = PRODUCTS;

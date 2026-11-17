@@ -79,8 +79,7 @@ export default function Home() {
           ============================== */}
         <section id="slider1" className="slider slider-1">
           <div className="" data-slide={1} data-slide-md={1} data-slide-sm={1} data-autoplay="true" data-nav="true" data-dots="false" data-space={0} data-loop="true" data-speed={3000} data-transition="fade" data-animate-out="fadeOut" data-animate-in="fadeIn">
-            <div className="slide-item align-v-h bg-overlay">
-              <div className="bg-img"><img src="assets/images/sliders/dsadas@2x.webp" alt="slide img" /></div>
+            <div className="slide-item align-v-h bg-overlay bg-img" style={{ backgroundImage: `url(assets/images/sliders/dsadas@2x.webp)`, backgroundSize: "cover", backgroundPosition: "center" }}>
               <div className="container">
                 <div className="row">
                   <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10">
@@ -722,7 +721,7 @@ export default function Home() {
                     </div>{/* /.col-lg-6 */}
                   </div>
                 </div>{/* /.col-lg-4 */}
-                <div className="col-12 col-sm-6 col-md-3 col-lg-2 footer__widget footer__widget-nav">
+                <div className="col-12 col-sm-6 col-md-4 col-lg-3 footer__widget footer__widget-nav">
                   <div className="footer__widget-content">
                     <h6 className="footer__widget-title">Contact Details</h6>
                     <div className="contact-panel">
@@ -742,7 +741,7 @@ export default function Home() {
                     </div>
                   </div>{/* /.footer-widget-content */}
                 </div>{/* /.col-lg-2 */}
-                <div className="col-12 col-sm-6 col-md-3 col-lg-2 footer__widget footer__widget-nav">
+                <div className="col-12 col-sm-6 col-md-2 col-lg-2 footer__widget footer__widget-nav">
                   <h6 className="footer__widget-title">Quick Links</h6>
                   <div className="footer__widget-content">
                     <nav>
@@ -809,7 +808,7 @@ export default function Home() {
         <button id="scrollTopBtn"><i className="fa fa-long-arrow-up" /></button>
         <div className="module__search-container">
           <i className="fa fa-times close-search" />
-          <form className="module__search-form" action="search.html" method="GET">
+          <form className="module__search-form" action="/search" method="GET">
             <input type="search" name="q" className="search__input" placeholder="Type words then press Enter" required />
             <button type="submit" className="module__search-btn">
               <i className="fa fa-search" />

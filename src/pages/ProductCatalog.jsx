@@ -77,8 +77,8 @@ export default function ProductCatalog() {
         {/* ========================
        page title 
           =========================== */}
-        <section id="pageTitle" className="page-title page-title-layout7 bg-parallax">
-          <div className="bg-img"><img src="assets/images/page-titles/products.webp" alt="background" /></div>
+        <section id="pageTitle" className="page-title page-title-layout7 bg-parallax bg-img" style={{ backgroundImage: `url(assets/images/page-titles/products.webp)`, backgroundSize: "cover", backgroundPosition: "center" }}>
+          
           <div className="container">
             <div className="row">
               <div className="col-sm-12 col-md-12 col-lg-12 col-xl-8">
@@ -178,7 +178,7 @@ export default function ProductCatalog() {
                     </div>{/* /.col-lg-6 */}
                   </div>
                 </div>{/* /.col-lg-4 */}
-                <div className="col-12 col-sm-6 col-md-3 col-lg-2 footer__widget footer__widget-nav">
+                <div className="col-12 col-sm-6 col-md-4 col-lg-3 footer__widget footer__widget-nav">
                   <div className="footer__widget-content">
                     <h6 className="footer__widget-title">Contact Details</h6>
                     <div className="contact-panel">
@@ -198,7 +198,7 @@ export default function ProductCatalog() {
                     </div>
                   </div>{/* /.footer-widget-content */}
                 </div>{/* /.col-lg-2 */}
-                <div className="col-12 col-sm-6 col-md-3 col-lg-2 footer__widget footer__widget-nav">
+                <div className="col-12 col-sm-6 col-md-2 col-lg-2 footer__widget footer__widget-nav">
                   <h6 className="footer__widget-title">Quick Links</h6>
                   <div className="footer__widget-content">
                     <nav>
@@ -265,7 +265,7 @@ export default function ProductCatalog() {
         <button id="scrollTopBtn"><i className="fa fa-long-arrow-up" /></button>
         <div className="module__search-container">
           <i className="fa fa-times close-search" />
-          <form className="module__search-form" action="search.html" method="GET">
+          <form className="module__search-form" action="/search" method="GET">
             <input type="search" name="q" className="search__input" placeholder="Type words then press Enter" required />
             <button type="submit" className="module__search-btn">
               <i className="fa fa-search" />

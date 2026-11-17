@@ -18,12 +18,7 @@
      
  ----------------------------*/
 
-//   <!-- JavaScript to manage the loading state -->
-window.addEventListener("load", function () {
-  const preloader = document.getElementById("preloader-container");
-  // Add the class that triggers the CSS fade-out transition
-  preloader.classList.add("loader-hidden");
-});
+// Preloader is hidden by the app (src/App.jsx) once the first route is ready.
 
 $(function () {
   "use strict";
@@ -33,10 +28,9 @@ $(function () {
 
   /*==========   Mobile Menu   ==========*/
   var $navToggler = $(".navbar-toggler");
-  $navToggler.on("click", function () {
+  // Namespaced: main.js runs again on every route, plain .on() would bind twice and cancel itself out.
+  $navToggler.off("click.mobilemenu").on("click.mobilemenu", function () {
     $(this).toggleClass("actived");
-  });
-  $navToggler.on("click", function () {
     $(".navbar-collapse").toggleClass("menu-opened");
   });
 
@@ -77,14 +71,14 @@ $(function () {
   var $moduleBtnSearch = $(".module__btn-search"),
     $moduleSearchContainer = $(".module__search-container");
   // Show Module Search
-  $moduleBtnSearch.on("click", function (e) {
+  $moduleBtnSearch.off("click.modulesearch").on("click.modulesearch", function (e) {
     e.preventDefault();
     $moduleSearchContainer
       .toggleClass("active", "inActive")
       .removeClass("inActive");
   });
   // Close Module Search
-  $(".close-search").on("click", function () {
+  $(".close-search").off("click.modulesearch").on("click.modulesearch", function () {
     $moduleSearchContainer.removeClass("active").addClass("inActive");
   });
 
@@ -119,7 +113,10 @@ $(function () {
 
   /*==========   Set Background-img to section   ==========*/
   $(".bg-img").each(function () {
-    var imgSrc = $(this).children("img").attr("src");
+    var $this = $(this);
+    var $img = $this.children("img");
+    if (!$img.length) return;
+    var imgSrc = $img.attr("src");
     $(this)
       .parent()
       .css({
@@ -255,10 +252,11 @@ $(function () {
   });
 
   /*==========   counterUp  ==========*/
-  try { $(".counter").counterUp({
-    delay: 10,
-    time: 500,
-  }); } catch (e) { /* ignore */ }
+  $(".counter").each(function () {
+    if (this.dataset.counterDone) return;
+    this.dataset.counterDone = "1";
+    try { $(this).counterUp({ delay: 10, time: 500 }); } catch (e) { /* ignore */ }
+  });
 
   /*==========   Projects Filtering and Sorting  ==========*/
   $("#filtered-items-wrap").mixItUp();
@@ -273,21 +271,4 @@ if (__rm) __rm.addEventListener("click", function () {
   this.style.display = "none";
 });
 
-// preloader
-
-document.addEventListener("DOMContentLoaded", function () {
-  const video = document.querySelector("#preloader-container video");
-
-  video.muted = true;
-  video.playsInline = true;
-
-  const playPromise = video.play();
-
-  if (playPromise !== undefined) {
-    playPromise.catch(() => {
-      document.addEventListener("touchstart", () => video.play(), {
-        once: true,
-      });
-    });
-  }
-});
+// preloader video autoplay is handled by the markup attributes (autoplay muted playsinline)
