@@ -7404,26 +7404,14 @@ textarea.form-control {
 }
 
 #banner3 .counter-item h4 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 600;
   line-height: 1;
   margin-bottom: 10px;
 }
 
 #banner3 .suffix {
-  font-size: 3rem;
-}
-
-.suffix {
   font-size: 4rem;
-  font-weight: 700;
-  color: white;
-}
-
-#banner3 .suffix {
-  font-size: 3rem;
-  font-weight: 700;
-  color: white;
 }
 
 .counter-item .counter__icon {
