@@ -7399,11 +7399,19 @@ textarea.form-control {
   margin-bottom: 20px;
 }
 
-#banner3 .counter-item h4 {
+#banner2 .counter-item h4 {
   font-size: 4rem;
+}
+
+#banner3 .counter-item h4 {
+  font-size: 3rem;
   font-weight: 600;
   line-height: 1;
   margin-bottom: 10px;
+}
+
+#banner3 .suffix {
+  font-size: 3rem;
 }
 
 .suffix {
@@ -9696,6 +9704,13 @@ img { max-width: 100%; }
 @media (max-width: 767px) {
   #servicesLayout3 .service-items-wrap .col-sm-6.col-md-6.col-lg-2,
   #servicesLayout3 .service-items-wrap .col-sm-6.col-md-6.col-lg-2:nth-last-child(-n+2) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  /* Counters: 1 per row on mobile */
+  .counters-div .col-sm-12.col-md-12.col-lg-6,
+  .counters-div .col-sm-12.col-md-12.col-lg-3,
+  .counters-div > .row > div {
     flex: 0 0 100%;
     max-width: 100%;
   }

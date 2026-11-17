@@ -4,5 +4,5 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VERCEL ? '/' : '/masar/',
+  base: process.env.VERCEL ? '/' : (process.env.GITHUB_PAGES ? '/masar/' : '/'),
 })
